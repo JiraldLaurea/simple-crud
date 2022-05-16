@@ -50,38 +50,38 @@ function App() {
     };
 
     return (
-        <div className="App p-5 flex flex-col items-center">
-            <div className="w-full max-w-6xl">
+        <div className="App px-5 pt-5 pb-10 flex flex-col items-center">
+            <div className="w-full max-w-7xl">
                 <p className="text-2xl font-black">Simple CRUD Application</p>
-                <hr className="mt-6 mb-12 border-t border-gray-300" />
+                <hr className="my-6 border-t border-gray-300" />
             </div>
 
-            <div className="flex w-full max-w-6xl">
+            <div className="w-full max-w-7xl">
                 <div className="w-80 mr-10">
-                    <p className="text-xl font-medium mb-8">Add employee</p>
+                    <p className="text-xl font-medium mb-4">Add employee</p>
                     <div className="flex flex-col">
                         <InputEmployee
-                            title="Name:"
+                            title="Name"
                             type="text"
                             setstate={(e) => setName(e.target.value)}
                         />
                         <InputEmployee
-                            title="Age:"
+                            title="Age"
                             type="number"
                             setstate={(e) => setAge(e.target.value)}
                         />
                         <InputEmployee
-                            title="Country:"
+                            title="Country"
                             type="text"
                             setstate={(e) => setCountry(e.target.value)}
                         />
                         <InputEmployee
-                            title="Position:"
+                            title="Position"
                             type="text"
                             setstate={(e) => setPosition(e.target.value)}
                         />
                         <InputEmployee
-                            title="Wage (year):"
+                            title="Wage (year)"
                             type="number"
                             setstate={(e) => setWage(e.target.value)}
                         />
@@ -93,9 +93,10 @@ function App() {
                         </button>
                     </div>
                 </div>
-                <div className="flex-grow">
+                <hr className="my-6 border-t border-gray-300" />
+                <div>
                     <div className="flex justify-between">
-                        <p className="text-xl font-medium mb-10">Employees</p>
+                        <p className="text-xl font-medium mb-4">Employees</p>
 
                         {/* <button
                             className="border w-40 text-blue-600 py-2 rounded-[3px] focus:ring-2 mb-8"
@@ -105,25 +106,27 @@ function App() {
                         </button> */}
                     </div>
 
-                    <div className="grid grid-cols-6 border pl-4 font-medium py-2 border-gray-300">
+                    <div className="grid grid-cols-8 border pl-4 font-medium py-2 border-gray-300">
                         <p className="w-3">#</p>
                         <p>Name</p>
                         <p>Age</p>
-                        <p>Country</p>
-                        <p>Position</p>
+                        <p className="col-span-2">Country</p>
+                        <p className="col-span-2">Position</p>
                         <p>Wage</p>
                     </div>
                     {employeeList.map((employee, index) => {
                         return (
                             <div
                                 key={employee.id}
-                                className="grid grid-cols-6 py-2 border-l border-r pl-4 border-b border-gray-300"
+                                className="grid grid-cols-8 py-2 border-l border-r pl-4 border-b border-gray-300"
                             >
                                 <p>{index + 1}</p>
                                 <p>{employee.name}</p>
                                 <p>{employee.age}</p>
-                                <p>{employee.country}</p>
-                                <p>{employee.position}</p>
+                                <p className="col-span-2">{employee.country}</p>
+                                <p className="col-span-2">
+                                    {employee.position}
+                                </p>
                                 <p>{employee.wage}</p>
                             </div>
                         );
